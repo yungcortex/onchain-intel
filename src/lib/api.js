@@ -22,11 +22,19 @@ export async function fetchJSON(path) {
   try {
     const res = await fetch(`${BASE}${path}`);
     if (res.ok) return res.json();
-  } catch {}
-
-  // Fallback to static mode
-  staticMode = true;
-  return staticFallback(path);
+    // Server responded but with an error (404, 500, etc) — this is NOT static mode
+    // The server is running, it just doesn't have this data
+    const err = await res.json().catch(() => ({ error: res.statusText }));
+    throw new Error(err.error || `HTTP ${res.status}`);
+  } catch (e) {
+    // If error is from our throw above (server responded), re-throw it
+    if (e.message && !e.message.includes('fetch') && !e.message.includes('Failed') && !e.message.includes('NetworkError')) {
+      throw e;
+    }
+    // Network error — server is unreachable, use static fallback
+    staticMode = true;
+    return staticFallback(path);
+  }
 }
 
 export async function postJSON(path, body) {
