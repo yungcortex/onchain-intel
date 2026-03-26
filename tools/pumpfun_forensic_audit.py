@@ -183,11 +183,15 @@ async def audit_token_overview(session, helius, mint):
     pairs = dex.get("pairs", []) if dex else []
 
     token_name = "Unknown"
+    best_liq = 0
     pools = []
 
     for p in pairs:
         name = p.get("baseToken", {}).get("name", "?")
-        token_name = name
+        p_liq = p.get("liquidity", {}).get("usd", 0) or 0
+        if p_liq > best_liq:
+            best_liq = p_liq
+            token_name = name
         dex_id = p.get("dexId", "?")
         price = p.get("priceUsd", "0")
         mcap = p.get("marketCap", p.get("fdv", 0)) or 0
