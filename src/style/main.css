@@ -559,27 +559,84 @@ ul { list-style: none; }
   .nav-links { display: none !important; }
   #mobile-nav-toggle { display: flex !important; }
 
-  .hero-title { font-size: clamp(32px, 10vw, 60px) !important; }
-  .hero-subtitle { font-size: 11px !important; letter-spacing: 0.15em !important; }
+  .hero { min-height: 60vh !important; padding: 60px 16px 20px !important; }
+  .hero-title { font-size: clamp(28px, 10vw, 50px) !important; }
+  .hero-subtitle { font-size: 10px !important; letter-spacing: 0.12em !important; }
 
-  .stats-row { gap: 16px; flex-wrap: wrap; }
-  .stat-value { font-size: 22px !important; }
+  .stats-row { gap: 12px; flex-wrap: wrap; margin-top: 32px !important; }
+  .stat-value { font-size: 20px !important; }
+  .stat-label { font-size: 8px !important; }
 
-  .search-container { margin-top: 32px; }
-  .search-input { font-size: 12px; padding: 14px 18px; padding-right: 50px; }
+  .search-container { margin-top: 24px !important; }
+  .search-input { font-size: 12px !important; padding: 12px 14px !important; padding-right: 50px !important; }
 
-  .audit-grid { grid-template-columns: 1fr; }
-  .content-section { padding: 40px 16px; }
+  .audit-grid { grid-template-columns: 1fr !important; }
+  .content-section { padding: 30px 12px !important; }
 
-  /* Token page responsive */
-  #dynamic-page [style*="grid-template-columns: 1fr 1fr"] {
+  /* All named grids — single column on mobile */
+  .audit-detail-grid,
+  .featured-grid,
+  .home-grid {
     grid-template-columns: 1fr !important;
   }
-  #dynamic-page [style*="grid-column:span 2"] {
+  .audit-detail-grid > *,
+  .featured-grid > *,
+  .home-grid > * {
+    grid-column: 1 !important;
+  }
+
+  /* Force all grids to single column on mobile */
+  #dynamic-page [style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+  #dynamic-page [style*="grid-column:span 2"],
+  #dynamic-page [style*="grid-column: span 2"] {
     grid-column: span 1 !important;
   }
 
+  /* Token page header */
+  #dynamic-page > div > div:first-child {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
+  /* Sybil wallet grid — single column */
+  .sybil-row { font-size: 9px !important; }
+
+  /* Pool cards grid — stack on mobile */
+  #dynamic-page [style*="grid-template-columns:1fr 1fr 1fr 1fr"],
+  #dynamic-page [style*="grid-template-columns: 1fr 1fr 1fr 1fr"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
   /* Graph height on mobile */
-  #wallet-graph-container { min-height: 280px !important; }
+  #wallet-graph-container { min-height: 300px !important; height: 300px !important; }
   #wallet-mini-graph { min-height: 250px !important; }
+
+  /* Live feed items */
+  .feed-item-new, #live-feed-list > div {
+    font-size: 9px !important;
+  }
+
+  /* Featured investigation — stack */
+  .content-section [style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Finding rows */
+  .finding-row { font-size: 10px !important; gap: 6px !important; flex-wrap: wrap; }
+  .severity-tag { font-size: 7px !important; min-width: 50px !important; padding: 2px 5px !important; }
+
+  /* Misc text sizes */
+  #dynamic-page { padding-top: 60px !important; }
+  .glass-panel { padding: 16px !important; }
+}
+
+/* Extra small screens */
+@media (max-width: 420px) {
+  .hero-title { font-size: 28px !important; letter-spacing: 0.05em !important; }
+  .search-input { font-size: 11px !important; }
+  .stat-value { font-size: 18px !important; }
+  #main-nav { padding: 12px 16px !important; }
+  .nav-brand { font-size: 11px !important; }
 }
