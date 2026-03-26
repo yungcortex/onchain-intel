@@ -13,7 +13,8 @@ const __dirname = dirname(__filename);
 
 // Load the TrumpChud audit report
 const reportPaths = [
-  join(process.env.HOME, 'tools', 'reports', 'FqhdB5odSZzSbUBj_FULL_AUDIT.json'),
+  join(__dirname, '..', 'public', 'data', 'trumpchud.json'),
+  join(process.env.HOME || '/tmp', 'tools', 'reports', 'FqhdB5odSZzSbUBj_FULL_AUDIT.json'),
   join(__dirname, '..', 'data', 'reports', 'FqhdB5odSZzSbUBj_FULL_AUDIT.json'),
 ];
 

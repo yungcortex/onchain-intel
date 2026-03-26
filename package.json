@@ -11,10 +11,13 @@
     "start": "NODE_ENV=production node server/index.js",
     "deploy:gh": "GITHUB_PAGES=1 vite build && npx gh-pages -d dist --nojekyll"
   },
+  "engines": {
+    "node": ">=18"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Solana token forensics platform",
   "dependencies": {
     "autoprefixer": "^10.4.27",
     "better-sqlite3": "^11.10.0",
