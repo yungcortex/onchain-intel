@@ -849,11 +849,23 @@ async def generate_final_report(mint, overview, holders, funding, suspicious_fun
     findings = []
     severity_scores = {"CRITICAL": 0, "HIGH": 0, "MEDIUM": 0, "LOW": 0}
 
-    # F1: Liquidity/MCap ratio
-    for p in overview["pools"]:
-        if p["liq_ratio"] < 1 and p["liquidity"] > 0:
-            findings.append(("CRITICAL", f"Liq/MCap {p['liq_ratio']:.2f}% on {p['dex']} — rug-pullable with ~${p['liquidity']/2:,.0f}"))
-            severity_scores["CRITICAL"] += 1
+    # F1: Liquidity/MCap ratio — only flag the main pool as CRITICAL
+    # Sort pools by liquidity descending
+    sorted_pools = sorted(overview["pools"], key=lambda x: x.get("liquidity", 0), reverse=True)
+    main_pool = sorted_pools[0] if sorted_pools else None
+
+    if main_pool and main_pool["liq_ratio"] < 1 and main_pool["liquidity"] > 0:
+        findings.append(("CRITICAL", f"Main pool ({main_pool['dex']}) Liq/MCap {main_pool['liq_ratio']:.2f}% — rug-pullable with ~${main_pool['liquidity']/2:,.0f}"))
+        severity_scores["CRITICAL"] += 1
+    elif main_pool and main_pool["liq_ratio"] < 5 and main_pool["liquidity"] > 0:
+        findings.append(("HIGH", f"Main pool ({main_pool['dex']}) Liq/MCap {main_pool['liq_ratio']:.2f}% — low liquidity"))
+        severity_scores["HIGH"] += 1
+
+    # Count how many secondary pools have dangerously low liquidity
+    low_liq_pools = [p for p in sorted_pools[1:] if p.get("liquidity", 0) < 1000 and p.get("liquidity", 0) > 0]
+    if len(low_liq_pools) >= 3:
+        findings.append(("MEDIUM", f"{len(low_liq_pools)} secondary pools with <$1K liquidity"))
+        severity_scores["MEDIUM"] += 1
 
     # F2: Price discrepancy
     prices = [p["price"] for p in overview["pools"] if p["price"] > 0]
@@ -927,11 +939,17 @@ async def generate_final_report(mint, overview, holders, funding, suspicious_fun
             severity_scores["MEDIUM"] += 1
 
     # Calculate risk score
-    risk_score = (severity_scores["CRITICAL"] * 30 +
-                  severity_scores["HIGH"] * 15 +
-                  severity_scores["MEDIUM"] * 5 +
-                  severity_scores["LOW"] * 1)
-    risk_score = min(risk_score, 100)
+    # Weighted scoring — diminishing returns for multiple findings of same severity
+    crit = severity_scores["CRITICAL"]
+    high = severity_scores["HIGH"]
+    med = severity_scores["MEDIUM"]
+
+    # First CRITICAL = 25, second = 20, third = 15, rest = 5 each
+    crit_score = min(crit, 1) * 25 + min(max(crit - 1, 0), 1) * 20 + min(max(crit - 2, 0), 1) * 15 + max(crit - 3, 0) * 5
+    high_score = min(high, 2) * 10 + max(high - 2, 0) * 3
+    med_score = med * 3
+
+    risk_score = min(crit_score + high_score + med_score, 100)
 
     if risk_score >= 70:
         risk_label = f"{RED}EXTREME RISK — DO NOT TRADE{RESET}"

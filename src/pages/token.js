@@ -489,6 +489,30 @@ function buildTokenHTML(data, mint) {
           `}
         </div>
 
+        <!-- Top Holders (show when no sybils but we have wallet links) -->
+        ${sybils.length === 0 && walletLinks.length > 0 ? `
+        <div class="glass-panel" style="padding:24px;grid-column:span 2;">
+          <div class="scanlines"></div>
+          <div style="font-family:'Orbitron',sans-serif;font-size:10px;font-weight:700;color:var(--chrome-dark);letter-spacing:0.2em;margin-bottom:16px;">TOP HOLDERS (${walletLinks.length})</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;">
+            ${walletLinks.slice(0, 20).map((w, i) => `
+              <div class="sybil-row" data-wallet="${w.wallet_address}" style="display:flex;justify-content:space-between;align-items:center;padding:6px 10px;background:rgba(88,166,255,0.04);border:1px solid rgba(88,166,255,0.1);border-radius:4px;cursor:pointer;">
+                <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--low);">#${i+1} ${addr(w.wallet_address, 10)}</span>
+                <span style="font-size:9px;color:var(--chrome-dark);">${w.role}</span>
+              </div>
+              <div class="sybil-detail" data-wallet-detail="${w.wallet_address}" style="display:none;padding:8px 12px;background:rgba(88,166,255,0.02);border:1px solid rgba(88,166,255,0.08);border-radius:0 0 4px 4px;margin-top:-4px;margin-bottom:4px;">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--chrome-mid);word-break:break-all;margin-bottom:6px;">${w.wallet_address}</div>
+                <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                  <a href="https://solscan.io/account/${w.wallet_address}" target="_blank" rel="noopener" style="font-size:9px;padding:3px 8px;background:rgba(88,166,255,0.1);border:1px solid rgba(88,166,255,0.2);border-radius:3px;color:var(--low);">Solscan</a>
+                  <button class="copy-addr-btn" data-copy="${w.wallet_address}" style="font-size:9px;padding:3px 8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:3px;color:var(--chrome-mid);cursor:pointer;">Copy</button>
+                  <a href="#/wallet/${w.wallet_address}" style="font-size:9px;padding:3px 8px;background:rgba(188,140,255,0.1);border:1px solid rgba(188,140,255,0.2);border-radius:3px;color:var(--accent);">Profile</a>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+        ` : ''}
+
         <!-- Sybil Wallets -->
         ${sybils.length > 0 ? `
         <div class="glass-panel" style="padding:24px;grid-column:span 2;">
