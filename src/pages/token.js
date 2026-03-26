@@ -135,9 +135,18 @@ export async function renderTokenPage(container, mint) {
     // Render live activity feed
     const feedContainer = container.querySelector('#live-feed-container');
     if (feedContainer) {
-      const watchedLinks = data.walletLinks.filter(w => w.role === 'sybil' || w.role === 'creator' || w.role === 'funder');
-      const watchedAddresses = watchedLinks.map(w => w.wallet_address);
-      renderLiveFeed(feedContainer, watchedAddresses, data.walletLinks);
+      // Watch sybils/creator/funder if available, otherwise watch top holders
+      let watchedLinks = data.walletLinks.filter(w => w.role === 'sybil' || w.role === 'creator' || w.role === 'funder');
+      if (watchedLinks.length === 0) {
+        // No identified bad actors — watch all linked wallets
+        watchedLinks = data.walletLinks.slice(0, 10);
+      }
+      const watchedAddresses = watchedLinks.map(w => w.wallet_address).filter(Boolean);
+      if (watchedAddresses.length > 0) {
+        renderLiveFeed(feedContainer, watchedAddresses, data.walletLinks);
+      } else {
+        feedContainer.innerHTML = '<div style="text-align:center;padding:24px;color:var(--chrome-dark);font-size:11px;">No wallets to monitor — no creator or flagged wallets identified for this token.</div>';
+      }
     }
   } catch (err) {
     // Token not audited yet — show audit trigger UI
@@ -469,7 +478,15 @@ function buildTokenHTML(data, mint) {
             <div style="margin-top:14px;padding:10px 14px;background:rgba(255,59,59,0.06);border:1px solid rgba(255,59,59,0.15);border-radius:6px;">
               <div style="font-size:10px;color:var(--critical);font-weight:600;">Disposable wallet — created same day as token, minimal transactions, connected to dev-prefixed address</div>
             </div>
-          ` : '<div style="color:var(--chrome-mid);font-size:12px;">Unknown creator</div>'}
+          ` : `
+            <div style="padding:16px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:8px;">
+              <div style="font-size:12px;color:var(--chrome-mid);font-weight:600;margin-bottom:8px;">Creator wallet not identified</div>
+              <div style="font-size:11px;color:var(--chrome-dark);line-height:1.5;">
+                RugCheck could not identify a creator for this token. This can happen with older tokens, tokens created through custom programs, or when the deployer wallet has been abandoned.
+                The audit still analyzed holder patterns, pool liquidity, bundled transactions, and price discrepancies.
+              </div>
+            </div>
+          `}
         </div>
 
         <!-- Sybil Wallets -->

@@ -8,12 +8,15 @@ export function renderTimeline(container, data) {
   // Build timeline events from the data
   const events = [];
 
-  // Token creation
-  if (token.createdAt) {
+  // Token creation — use earliest pool date, NOT the audit timestamp
+  const poolDates = pools.filter(p => p.pool_created_at).map(p => new Date(p.pool_created_at)).sort((a, b) => a - b);
+  const tokenBirthDate = poolDates.length > 0 ? poolDates[0].toISOString() : null;
+
+  if (tokenBirthDate) {
     events.push({
-      time: token.createdAt,
-      title: 'Token Created',
-      desc: `${token.name} deployed on Pump.fun bonding curve`,
+      time: tokenBirthDate,
+      title: 'Token First Seen',
+      desc: `${token.name} — earliest known pool created`,
       type: 'critical',
       icon: '●',
     });
