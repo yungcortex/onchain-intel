@@ -4315,7 +4315,7 @@ Risk: `+M.riskLevel:""}`);const R=30;S.on("tick",()=>{T.attr("x1",M=>M.source.x)
       </div>
 
       <!-- Two column layout -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <div class="audit-detail-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
 
         <!-- Findings -->
         <div class="glass-panel" style="padding:24px;grid-column:span 2;">
