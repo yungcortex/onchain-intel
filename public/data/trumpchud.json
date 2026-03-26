@@ -1,0 +1,314 @@
+{
+  "token": "FqhdB5odSZzSbUBjyemZZn9rF86xmRtHksLZGQ4Cpump",
+  "name": "TrumpChud",
+  "creator": "3SoU4zFUH19rfRixeH5LgAoNhxBb323yJ8ULC3joC9YD",
+  "timestamp": "2026-03-25T22:16:47.382679+00:00",
+  "risk_score": 100,
+  "severity_counts": {
+    "CRITICAL": 6,
+    "HIGH": 2,
+    "MEDIUM": 1,
+    "LOW": 0
+  },
+  "findings": [
+    {
+      "severity": "CRITICAL",
+      "description": "Liq/MCap 0.80% on pumpswap \u2014 rug-pullable with ~$409,707"
+    },
+    {
+      "severity": "CRITICAL",
+      "description": "Liq/MCap 0.00% on meteora \u2014 rug-pullable with ~$4"
+    },
+    {
+      "severity": "CRITICAL",
+      "description": "5,245x price discrepancy across pools"
+    },
+    {
+      "severity": "CRITICAL",
+      "description": "20 wallets hold identical ~0.85% each \u2014 bundled distribution"
+    },
+    {
+      "severity": "HIGH",
+      "description": "Wallet 4DitNB2f...eTrupg  funded 20 top holders"
+    },
+    {
+      "severity": "HIGH",
+      "description": "20 top holder wallets created within 7 days \u2014 likely sybils"
+    },
+    {
+      "severity": "CRITICAL",
+      "description": "2 bundled transaction slots detected"
+    },
+    {
+      "severity": "CRITICAL",
+      "description": "Wallet cluster (20 wallets) controls 17.07% of supply"
+    },
+    {
+      "severity": "MEDIUM",
+      "description": "Not many holders are holding the token"
+    }
+  ],
+  "pools": [
+    {
+      "dex": "pumpswap",
+      "pool": "4DitNB2feGzaWBBcq7VVku2VASERHUdhYD9w76eTrupg",
+      "price": 0.1019,
+      "mcap": 101954162,
+      "liquidity": 819414.23,
+      "volume": 2822995.2,
+      "buys_24h": 10230,
+      "sells_24h": 7231,
+      "created": "2026-03-25T14:22:33+00:00",
+      "liq_ratio": 0.8037084645941183
+    },
+    {
+      "dex": "pumpfun",
+      "pool": "2acmLpntZeHTpJfQWt5eCdiwPPAkRngLNAGJaMrNu4jm",
+      "price": 3.796e-05,
+      "mcap": 37965.33,
+      "liquidity": 0,
+      "volume": 7854.49,
+      "buys_24h": 3,
+      "sells_24h": 0,
+      "created": "2026-03-25T14:22:33+00:00",
+      "liq_ratio": 0.0
+    },
+    {
+      "dex": "meteora",
+      "pool": "ESaD1UgayH1hHjz4ssXvnwJGYNMYbW6o5TrsRowdewqJ",
+      "price": 0.1991,
+      "mcap": 199148472,
+      "liquidity": 7.27,
+      "volume": 0,
+      "buys_24h": 1,
+      "sells_24h": 0,
+      "created": "2026-03-25T21:32:14+00:00",
+      "liq_ratio": 3.650542696606781e-06
+    }
+  ],
+  "holder_count": 20,
+  "top_holder_concentration": 8.8474147501091,
+  "suspicious_funders": {
+    "4DitNB2feGzaWBBcq7VVku2VASERHUdhYD9w76eTrupg": [
+      "13JDMfw6LRpM4wvkARWNMfuGsxKXf2pS2r6ahwbaXXdo",
+      "2o9bRkqpcqWdJDg2puX5dVSqDHfz4qga6uK3pdwXTB5f",
+      "GgoMmxumS3N958dcMPrwSb6PgqzZwy9ciJLvDfR8aady",
+      "CWjbVvebi1K83xruCfkRZ6YrKfxiqFrT7pTc1Jaq7FBs",
+      "DW1DuHL7djXHJTFfnHup4riE7n9zHitRMAvuJBnF4g9e",
+      "tR7xRCDZVGxkBGiSjifVM1mF4GwMiiQryCRQifCnAiK",
+      "JBNzDnwBgwBjXacTTeNmkLtcswiLzvv1aAbZkJHm1Y3r",
+      "6rZBbtoYeSmuxU32gQQ8kxwS9hcKUUrKG7UVdhTg4Lnj",
+      "5aSq4z8xakXVXzxgrwpgUwjfVviNzt3LG59exH832jQa",
+      "GBSSgmE8EkKP83KXPFsUWE5Lpgxh6Q29sLdWGsqVXJZ3",
+      "CqPJKG2ERTZVy3HvHEM56f8EPCCYkKmoVFRq6W93XNgb",
+      "HDsjhETKiHdTcxsnryHjY1bsREXU7a9fYGxLrJCbsR4i",
+      "ECsKofp3MNfSnwCMtXqVW8ZpT1PoFTa1GUHYkYkjTk3B",
+      "9mPjB8QjyLLWctrx9rGp77eLrUfv6p4e1PFMk9FKcD76",
+      "Af2vHW5WUuQJg4XLskTTA7KRtzpPMsoXdPvAtgG8TBYt",
+      "4KLwKrcfPrpzvpemzwtTSaR35ELTMAAhALs9XZVdLFum",
+      "C6kbJtsS6uLeVqYUHFuF8zTJKdima58rw4Da9xZ2GXaD",
+      "7GiNHF72sc7WpURNymrpUp8gUS4TrXiMRNDV5By4idCs",
+      "5cB4xFvQvf7j9EB6m3mnzg3bMeuH2vJs1KR4Z7akYEEW",
+      "CXcSuCpEanV5vEqT1YXnrTA643wjDRoYW1AjfRwNdVZ8"
+    ]
+  },
+  "wallet_clusters": {
+    "CXcSuCpEanV5vEqT1YXnrTA643wjDRoYW1AjfRwNdVZ8": [
+      "13JDMfw6LRpM4wvkARWNMfuGsxKXf2pS2r6ahwbaXXdo",
+      "2o9bRkqpcqWdJDg2puX5dVSqDHfz4qga6uK3pdwXTB5f",
+      "GgoMmxumS3N958dcMPrwSb6PgqzZwy9ciJLvDfR8aady",
+      "CWjbVvebi1K83xruCfkRZ6YrKfxiqFrT7pTc1Jaq7FBs",
+      "DW1DuHL7djXHJTFfnHup4riE7n9zHitRMAvuJBnF4g9e",
+      "tR7xRCDZVGxkBGiSjifVM1mF4GwMiiQryCRQifCnAiK",
+      "JBNzDnwBgwBjXacTTeNmkLtcswiLzvv1aAbZkJHm1Y3r",
+      "6rZBbtoYeSmuxU32gQQ8kxwS9hcKUUrKG7UVdhTg4Lnj",
+      "5aSq4z8xakXVXzxgrwpgUwjfVviNzt3LG59exH832jQa",
+      "GBSSgmE8EkKP83KXPFsUWE5Lpgxh6Q29sLdWGsqVXJZ3",
+      "CqPJKG2ERTZVy3HvHEM56f8EPCCYkKmoVFRq6W93XNgb",
+      "HDsjhETKiHdTcxsnryHjY1bsREXU7a9fYGxLrJCbsR4i",
+      "ECsKofp3MNfSnwCMtXqVW8ZpT1PoFTa1GUHYkYkjTk3B",
+      "9mPjB8QjyLLWctrx9rGp77eLrUfv6p4e1PFMk9FKcD76",
+      "Af2vHW5WUuQJg4XLskTTA7KRtzpPMsoXdPvAtgG8TBYt",
+      "4KLwKrcfPrpzvpemzwtTSaR35ELTMAAhALs9XZVdLFum",
+      "C6kbJtsS6uLeVqYUHFuF8zTJKdima58rw4Da9xZ2GXaD",
+      "7GiNHF72sc7WpURNymrpUp8gUS4TrXiMRNDV5By4idCs",
+      "5cB4xFvQvf7j9EB6m3mnzg3bMeuH2vJs1KR4Z7akYEEW",
+      "CXcSuCpEanV5vEqT1YXnrTA643wjDRoYW1AjfRwNdVZ8"
+    ]
+  },
+  "creator_data": {
+    "balance": 0.944836697,
+    "tx_count": 6,
+    "tx_types": {
+      "TRANSFER": 4,
+      "CREATE_VESTING_ESCROW": 1,
+      "CREATE": 1
+    },
+    "sol_flows": {
+      "in": 1.000000012,
+      "out": 0.057211145000000005
+    },
+    "tokens_created": [],
+    "tokens_traded": 1
+  },
+  "bundle_data": {
+    "bundle_slots": 2,
+    "early_buyers": 65,
+    "earliest_buyers": {
+      "Fpk7Cw1XbGpPrJhbVwqKfAawd3eq9UqUAow3FYC5bUaa": {
+        "slot": 408854720,
+        "timestamp": 1774476987,
+        "amount": 631,
+        "signature": "35cXNn94wfm6cXqXcsTABTL5qsawgZbGx6m3685iGZcWA4edAhjAuhz8UPuepcYunSbm6CW52ux4PMhvCD4CABhN",
+        "from": "4DitNB2feGzaWBBcq7VVku2VASERHUdhYD9w76eTrupg"
+      },
+      "9XTJoRxhtMbrBif3jF89UYkpKwkvFd9FE9hBZAVdHGS5": {
+        "slot": 408854705,
+        "timestamp": 1774476981,
+        "amount": 752,
+        "signature": "2doJLU5jmtgiDdoRBgwEEbD3QoxJpC8zTWKLbDp5hQLFDsNynUhiXbfkUfBG5CsccRP5zSHZSjne3SqeL44zv5Lu",
+        "from": "4DitNB2feGzaWBBcq7VVku2VASERHUdhYD9w76eTrupg"
+      },
+      "AGv2uhytybY42y1d6b65G2SF9nrs84wTjT5PNoeaU2oh": {
+        "slot": 408854692,
+        "timestamp": 1774476976,
+        "amount": 462,
+        "signature": "5T8kvbMqbabFegnRbNsFyAqhrpMFcz3BgCUL8EwrCZNxFbZejicFq7jSUkvWXRsfezSTHiL951bupZC7t1mRjFXv",
+        "from": "4DitNB2feGzaWBBcq7VVku2VASERHUdhYD9w76eTrupg"
+      },
+      "CB7gAawd9rbvReGwjzSx39VxH9TjRvCPpRbqovBGmPFB": {
+        "slot": 408854679,
+        "timestamp": 1774476971,
+        "amount": 276,
+        "signature": "2SnnRsDx5b3s7pZRjn4SqzXE5y6j8VfFraGLGisxGe55cvr6LNNtvjFw8NQL3hMh3SJQTsNwXzXWChBXsbEyqNoD",
+        "from": "4DitNB2feGzaWBBcq7VVku2VASERHUdhYD9w76eTrupg"
+      },
+      "2XvrcTn76hthVcrEh5bg8Yeh8VLrs5EZtFNGqNnVTXNR": {
+        "slot": 408854666,
+        "timestamp": 1774476966,
+        "amount": 659,
+        "signature": "SjowaaKVBJgZshpE4kfMszFZ5u6a8VzwpxhfkfeGAdepmbk6jtqjwAmkwnUq1p4DuBkoDNWxPJeAgushyUFJDkz",
+        "from": "4DitNB2feGzaWBBcq7VVku2VASERHUdhYD9w76eTrupg"
+      },
+      "Heb55DmEr8beJZ1qdZpPxow7NAVnHqNhbW7U3bUjNAs5": {
+        "slot": 408854654,
+        "timestamp": 1774476961,
+        "amount": 458,
+        "signature": "2fwQsPdvN3EVRDiEbGu1JCfmPssvSDtpnE2EXXqFwZJfzijgQQ6NvY6xfnED4j9AqmZ6Fv9GUPkvAJ22MRnFA41v",
+        "from": "4DitNB2feGzaWBBcq7VVku2VASERHUdhYD9w76eTrupg"
+      },
+      "Erd44qBmGQG8CE82Cs3xvwfEVKuRXmnL5xwtiqYJwJXy": {
+        "slot": 408854641,
+        "timestamp": 1774476956,
+        "amount": 339,
+        "signature": "3Ko1pP6uU7EEz3Me3M2xCXNJNwDk2BecdHxFvMuwnebPSToqb5vQS9nD5vM8uFArWjSkFgPsfuEu4xZvb825sPGM",
+        "from": "4DitNB2feGzaWBBcq7VVku2VASERHUdhYD9w76eTrupg"
+      },
+      "2wPGqSHZkzMaXm3va6w8E6WAeRC5n79AQHj3D7xEee79": {
+        "slot": 408854628,
+        "timestamp": 1774476951,
+        "amount": 751,
+        "signature": "9ehbk1FSYPSNqoCnvyTUD7Cm1nvKYUX4rV1EY72MNGsKAqNG3CcyaqKzra33hMWTo9LB6BzuGhPtnH4p5Tsyoc9",
+        "from": "4DitNB2feGzaWBBcq7VVku2VASERHUdhYD9w76eTrupg"
+      },
+      "5fNrGD5vCR7Cj1ZGM13wKMVfERr7dWprim3wGTcwFBXG": {
+        "slot": 408854614,
+        "timestamp": 1774476946,
+        "amount": 805,
+        "signature": "4yreAekaH6MiZQoSK4nMEaouiawg2Nid4pWS8VoZcCc2Uw7Sy5o3Hh1jEYdPFgizUuihuvj3qYrHngG2c5LyAbXm",
+        "from": "4DitNB2feGzaWBBcq7VVku2VASERHUdhYD9w76eTrupg"
+      },
+      "HVbrXFjDHdpJEb51CJ6nzafA55GVzah2iXp8aiFoer8B": {
+        "slot": 408854601,
+        "timestamp": 1774476941,
+        "amount": 465,
+        "signature": "2mwZPbSugPzzaChrHFCu8rMacf8Voy2GybsyjVuvZNiLLQwEvQXNoLpYj9PUihpWXQxsXMPQuY88yaFB8wbwYN3p",
+        "from": "4DitNB2feGzaWBBcq7VVku2VASERHUdhYD9w76eTrupg"
+      },
+      "BicNX6BdEEH3FcqwQUEKYdaqJ1PWRK6nb3zbqbjdgsYx": {
+        "slot": 408854588,
+        "timestamp": 1774476936,
+        "amount": 466,
+        "signature": "3NDB9enDmdNSujWf44ruZ5y6gHyC3EvfUvReUGwnJdXcBvJkUcmTtj6ZedbVBUGrvWKYrGYFPysR5cmUVRz64VCw",
+        "from": "4DitNB2feGzaWBBcq7VVku2VASERHUdhYD9w76eTrupg"
+      },
+      "FNBezZfmTcpoG3S2MWdnGNAcU3fsG24AYo5rz1ZhVmy": {
+        "slot": 408854574,
+        "timestamp": 1774476931,
+        "amount": 482,
+        "signature": "5Nw9xMEsTCD46AW4DHv8JqRcs1QpYvzU8fVVMCfndDNdtff5R8TWFKq5PzMU9ck7z5GGMJEX6nH4BpiB9bpiMqjo",
+        "from": "4DitNB2feGzaWBBcq7VVku2VASERHUdhYD9w76eTrupg"
+      },
+      "Cu9Voaaay57SdtkPmV2a5xJPaTwyq7vHBb5YFMX9T1kc": {
+        "slot": 408854561,
+        "timestamp": 1774476926,
+        "amount": 595,
+        "signature": "2TP3GTcKjJL8Vh59tJWmWEqZTVAVVeYF37uX8zibXfS9y9sfsieWUYft4SbcmbuZUqHoSEk8XBJt269Dr74nXjR",
+        "from": "4DitNB2feGzaWBBcq7VVku2VASERHUdhYD9w76eTrupg"
+      },
+      "BBMCEPeJbugpEcUGAeM2EXR7sLnqBRp96RyNLcadg1cG": {
+        "slot": 408854550,
+        "timestamp": 1774476921,
+        "amount": 635,
+        "signature": "fcPKhpbRsqqQQEnP5PtCCTo41fZttmfQmZ7nuVwNDcwfguP3hcbfssNymEYdHYAdo1CSk3yGSqZjjos7ZSKaBpR",
+        "from": "4DitNB2feGzaWBBcq7VVku2VASERHUdhYD9w76eTrupg"
+      },
+      "Kh91NPHyHpmZmeyWZZL8WBrY7PfSWzF69gNoQ8fG2VU": {
+        "slot": 408854537,
+        "timestamp": 1774476916,
+        "amount": 811,
+        "signature": "5svtit6EVa5hkj7X8A4JD2Fbzv4YGmnV9gWycVymC5emmzqhVYKsrDQ86VHym5HxdqdgAZDWEfQ15Bt9PTMMbytH",
+        "from": "4DitNB2feGzaWBBcq7VVku2VASERHUdhYD9w76eTrupg"
+      },
+      "5rvm59TJpTitDsKnQ432QbfBjU2TGjjVvbHY4JLokFK9": {
+        "slot": 408854523,
+        "timestamp": 1774476911,
+        "amount": 958,
+        "signature": "U6jMRFqa75H475qSxQb2FPSz8WW2tcXYnKZtNrdhKFAzGXCN4ZtcpGU8mX1SQwnZUZwSBFpsSu9ycdW32awe99D",
+        "from": "4DitNB2feGzaWBBcq7VVku2VASERHUdhYD9w76eTrupg"
+      },
+      "jRMomhSTYDzHS1fHLvoimZNHniAdcu4tbbfhkRLsZfB": {
+        "slot": 408854511,
+        "timestamp": 1774476906,
+        "amount": 869,
+        "signature": "2kppxnNp3YxL2Ys25j7ia2TSZvAvXWfHYkn2Wp4tgvjUmjru66PbiKbnEspU163ookYQXb2tkrgtU1ZfGMdLxd1u",
+        "from": "4DitNB2feGzaWBBcq7VVku2VASERHUdhYD9w76eTrupg"
+      },
+      "FeDozCzqgLtNDQbsYuWNngvBc5MK9QtijsbdtSYsA4j9": {
+        "slot": 408854498,
+        "timestamp": 1774476901,
+        "amount": 924,
+        "signature": "5Fd5seauuH926oL9mmfTZkFdCrGRHkicxBWiMsRLVrqKuvvay99w7SGUdrRtHfjToBT3VkPmcKtw4Scf7Wb2yruG",
+        "from": "4DitNB2feGzaWBBcq7VVku2VASERHUdhYD9w76eTrupg"
+      },
+      "GiLtDS3esCLo34vdopsz5CTrypsj2ZnhZfR4D8NDDjnx": {
+        "slot": 408854485,
+        "timestamp": 1774476896,
+        "amount": 786,
+        "signature": "5ZGArRAXcwr9e8ncwNFbeVWvrNw4i1NGcH8e6zFXUXRPBzpS7uktq2J7ck1xsTZRkaWwWR2DMz5T58mkBn7ygdQk",
+        "from": "4DitNB2feGzaWBBcq7VVku2VASERHUdhYD9w76eTrupg"
+      },
+      "92brS7qXgu97HmqGTRfp3AKAS7ZYmA5633Kp14Tp3Ysj": {
+        "slot": 408854473,
+        "timestamp": 1774476891,
+        "amount": 411,
+        "signature": "2K3ZwLMTaVXCtYpLwCHvyFQLQhyZaW9uCPSaVWbQgjbEGdxaAVNewRGRNkGX9PzMqRBDKuL7UJ8LJft88Nf2xzkR",
+        "from": "4DitNB2feGzaWBBcq7VVku2VASERHUdhYD9w76eTrupg"
+      }
+    }
+  },
+  "lp_data": {
+    "pool_creation": null,
+    "lp_adds": 0,
+    "lp_removes": 0,
+    "total_sol_added": 0,
+    "total_sol_removed": 0,
+    "total_swaps": 300
+  },
+  "links": {
+    "creator_solscan": "https://solscan.io/account/3SoU4zFUH19rfRixeH5LgAoNhxBb323yJ8ULC3joC9YD",
+    "token_solscan": "https://solscan.io/token/FqhdB5odSZzSbUBjyemZZn9rF86xmRtHksLZGQ4Cpump",
+    "token_birdeye": "https://birdeye.so/token/FqhdB5odSZzSbUBjyemZZn9rF86xmRtHksLZGQ4Cpump?chain=solana",
+    "rugcheck": "https://rugcheck.xyz/tokens/FqhdB5odSZzSbUBjyemZZn9rF86xmRtHksLZGQ4Cpump"
+  }
+}

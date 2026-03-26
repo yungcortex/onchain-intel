@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OnChain Intel — Solana Token Forensics</title>
+  <meta name="description" content="On-chain forensic audits for Solana tokens. Exposing sybil attacks, bundled launches, and rug pulls with verifiable evidence." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loading-pulse"></div>
+    <div class="loading-title">ONCHAIN INTEL</div>
+  </div>
+
+  <!-- WebGL Background -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Scanline Overlay -->
+  <div class="scanline-overlay"></div>
+
+  <!-- Navigation -->
+  <nav id="main-nav">
+    <div class="nav-brand" data-nav="#/">ONCHAIN INTEL</div>
+    <div class="nav-links">
+      <a class="nav-link active" data-nav="#/">SEARCH</a>
+      <a class="nav-link" data-nav="#/blacklist">BLACKLIST</a>
+      <a class="nav-link" data-nav="#/investigations">INVESTIGATIONS</a>
+      <a class="nav-link" data-nav="#/submit">SUBMIT TIP</a>
+    </div>
+    <button id="mobile-nav-toggle" style="display:none;background:none;border:1px solid rgba(200,200,216,0.15);border-radius:6px;padding:8px;cursor:pointer;flex-direction:column;gap:3px;">
+      <span style="display:block;width:16px;height:1.5px;background:var(--chrome-light);"></span>
+      <span style="display:block;width:16px;height:1.5px;background:var(--chrome-light);"></span>
+      <span style="display:block;width:16px;height:1.5px;background:var(--chrome-light);"></span>
+    </button>
+  </nav>
+  <div id="mobile-menu" style="display:none;position:fixed;top:56px;left:0;right:0;z-index:99;background:rgba(10,10,18,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,200,216,0.1);padding:16px;flex-direction:column;gap:12px;">
+    <a class="nav-link" data-nav="#/" style="padding:8px 16px;display:block;">SEARCH</a>
+    <a class="nav-link" data-nav="#/blacklist" style="padding:8px 16px;display:block;">BLACKLIST</a>
+    <a class="nav-link" data-nav="#/investigations" style="padding:8px 16px;display:block;">INVESTIGATIONS</a>
+    <a class="nav-link" data-nav="#/submit" style="padding:8px 16px;display:block;">SUBMIT TIP</a>
+  </div>
+
+  <!-- App -->
+  <div id="app">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="grid-overlay"></div>
+
+      <h1 class="hero-title chrome-text">ONCHAIN INTEL</h1>
+      <p class="hero-subtitle">Solana Token Forensics</p>
+
+      <!-- Search Bar -->
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <input
+            type="text"
+            id="search-input"
+            class="search-input"
+            placeholder="Paste a Solana token address or name..."
+            spellcheck="false"
+            autocomplete="off"
+          />
+          <button id="search-btn" class="search-btn">AUDIT</button>
+        </div>
+        <p class="search-hint">Enter a mint address to run a full forensic audit</p>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-row anim-enter">
+        <div class="stat-item">
+          <div class="stat-value red" id="stat-audits">1</div>
+          <div class="stat-label">Tokens Audited</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value blue" id="stat-wallets">21</div>
+          <div class="stat-label">Wallets Flagged</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value green" id="stat-rugs">1</div>
+          <div class="stat-label">Rugs Exposed</div>
+        </div>
+      </div>
+
+      <div class="scroll-chevron">&#9662;</div>
+    </section>
+
+    <!-- Featured Investigation -->
+    <section class="content-section" style="padding-top:40px;">
+      <div class="section-title anim-enter">Featured Investigation</div>
+      <div class="glass-panel anim-enter" style="padding:0;overflow:hidden;cursor:pointer;" onclick="window.location.hash='#/token/FqhdB5odSZzSbUBjyemZZn9rF86xmRtHksLZGQ4Cpump'">
+        <div class="scanlines"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;min-height:280px;">
+          <!-- Left: Investigation summary -->
+          <div style="padding:32px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+              <span class="risk-badge critical">100/100</span>
+              <span style="font-size:10px;color:var(--chrome-dark);font-family:'Orbitron',sans-serif;letter-spacing:0.1em;">MARCH 25, 2026</span>
+            </div>
+            <h3 style="font-family:'Orbitron',sans-serif;font-size:22px;font-weight:800;color:var(--chrome-bright);margin-bottom:10px;line-height:1.2;">TrumpChud — Coordinated Sybil Attack</h3>
+            <p style="font-size:13px;color:var(--chrome-mid);line-height:1.6;margin-bottom:20px;">One entity created 20 fresh wallets in under 9 hours, each holding exactly 0.83% of supply. $102M market cap backed by only $819K real liquidity.</p>
+            <div style="display:flex;gap:16px;font-size:11px;">
+              <span style="color:var(--critical);">6 CRITICAL</span>
+              <span style="color:var(--high);">2 HIGH</span>
+              <span style="color:var(--chrome-dark);">20 sybil wallets</span>
+              <span style="color:var(--chrome-dark);">22 wallets flagged</span>
+            </div>
+          </div>
+          <!-- Right: Key numbers -->
+          <div style="background:rgba(255,59,59,0.03);border-left:1px solid rgba(255,255,255,0.04);padding:32px;display:flex;flex-direction:column;justify-content:center;gap:16px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:11px;color:var(--chrome-dark);font-weight:500;">Claimed MCap</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:700;color:var(--critical);">$102M</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:11px;color:var(--chrome-dark);font-weight:500;">Real Liquidity</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:700;color:var(--clean);">$819K</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:11px;color:var(--chrome-dark);font-weight:500;">Liq/MCap</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:700;color:var(--critical);">0.80%</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:11px;color:var(--chrome-dark);font-weight:500;">Price Gap</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:700;color:var(--high);">5,245x</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:11px;color:var(--chrome-dark);font-weight:500;">Sybil Holdings</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:700;color:var(--critical);">17.07%</span>
+            </div>
+            <div style="margin-top:8px;">
+              <!-- Mini liquidity bar -->
+              <div style="font-size:9px;color:var(--chrome-dark);margin-bottom:4px;">Liquidity vs Market Cap</div>
+              <div style="height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;">
+                <div style="height:100%;width:0.8%;background:var(--clean);border-radius:3px;"></div>
+              </div>
+              <div style="display:flex;justify-content:space-between;font-size:8px;color:var(--chrome-dark);margin-top:2px;font-family:'JetBrains Mono',monospace;">
+                <span>$819K</span><span>$102M</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works + Recent Blacklist -->
+    <section class="content-section" style="padding-top:20px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+        <!-- How it works -->
+        <div class="anim-enter">
+          <div class="section-title">How It Works</div>
+          <div class="glass-panel" style="padding:28px;">
+            <div class="scanlines"></div>
+            <div style="display:flex;flex-direction:column;gap:16px;">
+              <div style="display:flex;gap:14px;align-items:flex-start;">
+                <div style="font-family:'Orbitron',sans-serif;font-size:14px;font-weight:800;color:var(--low);min-width:24px;">01</div>
+                <div>
+                  <div style="font-size:13px;color:var(--chrome-bright);font-weight:600;margin-bottom:2px;">Paste a token address</div>
+                  <div style="font-size:11px;color:var(--chrome-dark);">Any Solana SPL token mint or pump.fun coin</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:14px;align-items:flex-start;">
+                <div style="font-family:'Orbitron',sans-serif;font-size:14px;font-weight:800;color:var(--low);min-width:24px;">02</div>
+                <div>
+                  <div style="font-size:13px;color:var(--chrome-bright);font-weight:600;margin-bottom:2px;">We trace every wallet</div>
+                  <div style="font-size:11px;color:var(--chrome-dark);">Holder clustering, funding sources, bundle detection, LP analysis</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:14px;align-items:flex-start;">
+                <div style="font-family:'Orbitron',sans-serif;font-size:14px;font-weight:800;color:var(--low);min-width:24px;">03</div>
+                <div>
+                  <div style="font-size:13px;color:var(--chrome-bright);font-weight:600;margin-bottom:2px;">Get a risk score + evidence</div>
+                  <div style="font-size:11px;color:var(--chrome-dark);">Every finding links to verifiable on-chain data</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:14px;align-items:flex-start;">
+                <div style="font-family:'Orbitron',sans-serif;font-size:14px;font-weight:800;color:var(--critical);min-width:24px;">04</div>
+                <div>
+                  <div style="font-size:13px;color:var(--chrome-bright);font-weight:600;margin-bottom:2px;">Bad actors get blacklisted</div>
+                  <div style="font-size:11px;color:var(--chrome-dark);">Wallets seen across multiple rugs are auto-flagged</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent flagged wallets -->
+        <div class="anim-enter">
+          <div class="section-title">Recently Flagged Wallets</div>
+          <div class="glass-panel" style="padding:28px;" id="recent-wallets-panel">
+            <div class="scanlines"></div>
+            <div id="recent-wallets-list" style="display:flex;flex-direction:column;gap:4px;">
+              <!-- Filled by JS -->
+            </div>
+            <div style="margin-top:16px;text-align:center;">
+              <a href="#/blacklist" style="font-size:10px;color:var(--low);font-family:'Orbitron',sans-serif;letter-spacing:0.1em;">VIEW FULL BLACKLIST &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="text-align:center;padding:40px 20px;position:relative;z-index:2;">
+      <p style="font-size:11px;color:var(--chrome-dark);letter-spacing:0.1em;font-family:'Orbitron',sans-serif;">ONCHAIN INTEL</p>
+      <p style="font-size:10px;color:var(--chrome-dark);margin-top:6px;opacity:0.5;">
+        On-chain forensics for Solana. All data sourced from public blockchain. Verify everything on Solscan.
+      </p>
+      <div style="display:flex;justify-content:center;gap:24px;margin-top:16px;">
+        <a href="#/blacklist" style="font-size:10px;color:var(--chrome-mid);">Blacklist</a>
+        <a href="#/investigations" style="font-size:10px;color:var(--chrome-mid);">Investigations</a>
+        <a href="#/submit" style="font-size:10px;color:var(--chrome-mid);">Submit Tip</a>
+      </div>
+    </footer>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
