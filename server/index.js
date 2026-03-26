@@ -48,14 +48,26 @@ app.get('/api/stats', (req, res) => {
   res.json({ audits, wallets, rugs });
 });
 
-// Serve static files in production
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(join(__dirname, '..', 'dist')));
+// Always serve static files (dist/ must exist)
+import { existsSync } from 'fs';
+const distPath = join(__dirname, '..', 'dist');
+if (existsSync(distPath)) {
+  app.use(express.static(distPath));
+  // SPA fallback — serve index.html for non-API routes
   app.get('*', (req, res) => {
-    res.sendFile(join(__dirname, '..', 'dist', 'index.html'));
+    if (!req.path.startsWith('/api')) {
+      res.sendFile(join(distPath, 'index.html'));
+    }
   });
 }
 
-app.listen(PORT, () => {
-  console.log(`OnChain Intel API running on http://localhost:${PORT}`);
+// Auto-seed if DB is empty
+const tokenCount = db.prepare('SELECT COUNT(*) as c FROM tokens').get().c;
+if (tokenCount === 0) {
+  console.log('Empty database — running seed...');
+  import('./seed.js').then(() => console.log('Seed complete')).catch(e => console.error('Seed failed:', e.message));
+}
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`OnChain Intel running on http://0.0.0.0:${PORT}`);
 });

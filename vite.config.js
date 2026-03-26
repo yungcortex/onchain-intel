@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import glsl from 'vite-plugin-glsl';
 
 export default defineConfig({
-  base: '/onchain-intel/',
+  base: process.env.GITHUB_PAGES ? '/onchain-intel/' : '/',
   plugins: [glsl()],
   build: {
     target: 'esnext',
