@@ -13,6 +13,76 @@ function severityClass(sev) {
   return (sev || '').toLowerCase();
 }
 
+function showAuditPolling(container, mint) {
+  container.innerHTML = `
+    <div style="max-width:800px;margin:0 auto;padding:60px 20px;text-align:center;">
+      <div style="font-family:'Orbitron',sans-serif;font-size:10px;color:var(--low);letter-spacing:0.2em;margin-bottom:16px;">AUDIT IN PROGRESS</div>
+      <h2 style="font-family:'Orbitron',sans-serif;font-size:clamp(18px,4vw,24px);color:var(--chrome-bright);margin-bottom:8px;">Running Forensic Audit</h2>
+      <p style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--chrome-dark);margin-bottom:24px;word-break:break-all;">${mint}</p>
+      <div class="loading-pulse" style="margin:0 auto;"></div>
+      <p style="color:var(--low);font-size:13px;margin-top:20px;font-family:'Orbitron',sans-serif;letter-spacing:0.1em;" id="audit-status-text">RUNNING AUDIT...</p>
+      <div id="audit-dots" style="margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--chrome-mid);"></div>
+    </div>
+  `;
+
+  const statusText = container.querySelector('#audit-status-text');
+  const dots = container.querySelector('#audit-dots');
+  let attempts = 0;
+  const maxAttempts = 50;
+  const phases = [
+    'Fetching token data from DexScreener...',
+    'Running RugCheck report...',
+    'Resolving top holders on-chain...',
+    'Tracing funding sources...',
+    'Analyzing creator wallet history...',
+    'Detecting bundled transactions...',
+    'Scanning LP manipulation events...',
+    'Building wallet cluster graph...',
+    'Calculating risk score...',
+    'Generating final report...',
+  ];
+
+  const poll = setInterval(async () => {
+    attempts++;
+    const phase = phases[Math.min(attempts - 1, phases.length - 1)];
+    if (dots) dots.textContent = phase;
+
+    try {
+      const check = await api.getAudit(mint);
+      if (check.token && check.token.status === 'complete') {
+        clearInterval(poll);
+        statusText.textContent = 'AUDIT COMPLETE';
+        statusText.style.color = 'var(--clean)';
+        setTimeout(() => renderTokenPage(container, mint), 500);
+        return;
+      }
+      if (check.token && check.token.status === 'failed') {
+        clearInterval(poll);
+        statusText.textContent = 'AUDIT FAILED';
+        statusText.style.color = 'var(--critical)';
+        if (dots) dots.textContent = 'Something went wrong. Refresh to try again.';
+        return;
+      }
+    } catch (e) {
+      // 404 means failed record was cleaned up — show retry
+      if (attempts > 5 && e.message?.includes('failed')) {
+        clearInterval(poll);
+        statusText.textContent = 'AUDIT FAILED';
+        statusText.style.color = 'var(--critical)';
+        if (dots) dots.textContent = 'Refresh the page to try again.';
+        return;
+      }
+    }
+
+    if (attempts >= maxAttempts) {
+      clearInterval(poll);
+      statusText.textContent = 'AUDIT TIMED OUT';
+      statusText.style.color = 'var(--critical)';
+      if (dots) dots.textContent = 'The audit is taking too long. Try again later.';
+    }
+  }, 5000);
+}
+
 function riskColor(score) {
   if (score >= 70) return 'var(--critical)';
   if (score >= 40) return 'var(--high)';
@@ -30,6 +100,13 @@ function riskLabel(score) {
 export async function renderTokenPage(container, mint) {
   try {
     const data = await api.getAudit(mint);
+
+    // If audit is still running, show polling UI instead of partial data
+    if (data.token && data.token.status === 'running') {
+      showAuditPolling(container, mint);
+      return;
+    }
+
     container.innerHTML = buildTokenHTML(data, mint);
     initInteractions(container, data, mint);
 

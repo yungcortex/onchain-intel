@@ -14,6 +14,18 @@ router.get('/:mint', (req, res) => {
     return res.status(404).json({ error: 'Token not audited yet', mint });
   }
 
+  // If still running, return status so frontend can poll
+  if (token.status === 'running') {
+    return res.json({ token: { mint, status: 'running', name: token.name }, findings: [], pools: [], walletLinks: [], connections: [], links: {}, bundleData: {}, creatorData: {} });
+  }
+
+  // If failed, return 404 so frontend shows the "Run Audit" button
+  if (token.status === 'failed') {
+    // Clean up the failed record so user can retry
+    db.prepare('DELETE FROM tokens WHERE mint = ? AND status = ?').run(mint, 'failed');
+    return res.status(404).json({ error: 'Previous audit failed. Try again.', mint });
+  }
+
   const findings = db.prepare("SELECT * FROM findings WHERE token_mint = ? ORDER BY CASE severity WHEN 'CRITICAL' THEN 0 WHEN 'HIGH' THEN 1 WHEN 'MEDIUM' THEN 2 ELSE 3 END").all(mint);
   const pools = db.prepare('SELECT * FROM pools WHERE token_mint = ?').all(mint);
   const walletLinks = db.prepare(`
