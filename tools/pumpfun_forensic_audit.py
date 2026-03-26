@@ -1000,7 +1000,11 @@ async def generate_final_report(mint, overview, holders, funding, suspicious_fun
         }
     }
 
-    report_path = f"/Users/yungcortex/tools/reports/{mint[:16]}_FULL_AUDIT.json"
+    # Use AUDIT_OUTPUT_DIR env var if set, otherwise default
+    output_dir = os.getenv("AUDIT_OUTPUT_DIR", os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "reports"))
+    if not os.path.exists(output_dir):
+        output_dir = os.path.join(os.getcwd(), "data", "reports")
+    report_path = os.path.join(output_dir, f"{mint[:16]}_FULL_AUDIT.json")
     os.makedirs(os.path.dirname(report_path), exist_ok=True)
     with open(report_path, "w") as f:
         json.dump(report, f, indent=2, default=str)

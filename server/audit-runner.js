@@ -55,6 +55,7 @@ export async function runForensicAudit(mint) {
       env: {
         ...process.env,
         HELIUS_API_KEY: heliusKey,
+        AUDIT_OUTPUT_DIR: REPORTS_DIR,
         HOME: process.env.HOME || '/root',
       },
       timeout: 240_000, // 4 min max
