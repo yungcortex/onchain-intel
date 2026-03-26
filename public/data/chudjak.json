@@ -1,0 +1,471 @@
+{
+  "token": "6yjNqPzTSanBWSa6dxVEgTjePXBrZ2FoHLDQwYwEsyM6",
+  "name": "Vicce Citty 6",
+  "creator": null,
+  "timestamp": "2026-03-26T03:44:26.420274+00:00",
+  "risk_score": 100,
+  "severity_counts": {
+    "CRITICAL": 13,
+    "HIGH": 1,
+    "MEDIUM": 0,
+    "LOW": 0
+  },
+  "findings": [
+    {
+      "severity": "CRITICAL",
+      "description": "Liq/MCap 0.05% on pumpswap \u2014 rug-pullable with ~$731"
+    },
+    {
+      "severity": "CRITICAL",
+      "description": "Liq/MCap 0.23% on orca \u2014 rug-pullable with ~$3,438"
+    },
+    {
+      "severity": "CRITICAL",
+      "description": "Liq/MCap 0.07% on meteora \u2014 rug-pullable with ~$3,618"
+    },
+    {
+      "severity": "CRITICAL",
+      "description": "Liq/MCap 0.01% on meteora \u2014 rug-pullable with ~$105"
+    },
+    {
+      "severity": "CRITICAL",
+      "description": "Liq/MCap 0.01% on meteora \u2014 rug-pullable with ~$81"
+    },
+    {
+      "severity": "CRITICAL",
+      "description": "Liq/MCap 0.02% on meteora \u2014 rug-pullable with ~$325"
+    },
+    {
+      "severity": "CRITICAL",
+      "description": "Liq/MCap 0.01% on meteora \u2014 rug-pullable with ~$97"
+    },
+    {
+      "severity": "CRITICAL",
+      "description": "Liq/MCap 0.00% on meteora \u2014 rug-pullable with ~$1"
+    },
+    {
+      "severity": "CRITICAL",
+      "description": "Liq/MCap 0.06% on raydium \u2014 rug-pullable with ~$26"
+    },
+    {
+      "severity": "CRITICAL",
+      "description": "Liq/MCap 0.31% on meteora \u2014 rug-pullable with ~$46"
+    },
+    {
+      "severity": "CRITICAL",
+      "description": "Liq/MCap 0.01% on pumpswap \u2014 rug-pullable with ~$0"
+    },
+    {
+      "severity": "CRITICAL",
+      "description": "426x price discrepancy across pools"
+    },
+    {
+      "severity": "HIGH",
+      "description": "5 top holder wallets created within 7 days \u2014 likely sybils"
+    },
+    {
+      "severity": "CRITICAL",
+      "description": "37 bundled transaction slots detected"
+    }
+  ],
+  "pools": [
+    {
+      "dex": "raydium",
+      "pool": "3Cv7Z8KN21M6Ur6nTeKiKEPcjTuEAg87Ciu6cC3gRnw6",
+      "price": 0.003207,
+      "mcap": 2973312,
+      "liquidity": 404694.69,
+      "volume": 1730111.67,
+      "buys_24h": 6899,
+      "sells_24h": 7539,
+      "created": "2024-05-05T07:04:12+00:00",
+      "liq_ratio": 13.610905616363167
+    },
+    {
+      "dex": "meteora",
+      "pool": "GEtYZjqMKnQdjFNTkfUf8m5PG3hVCSoz58i7mV7gk3vC",
+      "price": 0.00321,
+      "mcap": 2975646,
+      "liquidity": 37202.28,
+      "volume": 4799.16,
+      "buys_24h": 134,
+      "sells_24h": 133,
+      "created": "2024-08-02T20:24:51+00:00",
+      "liq_ratio": 1.2502253292226293
+    },
+    {
+      "dex": "pumpswap",
+      "pool": "76skFQcZdNznPBCy21vbgAEovwUE25tTbSony1P2AjLu",
+      "price": 0.003209,
+      "mcap": 2974969,
+      "liquidity": 1461.66,
+      "volume": 5149.75,
+      "buys_24h": 1023,
+      "sells_24h": 779,
+      "created": "2025-11-11T23:18:58+00:00",
+      "liq_ratio": 0.04913194053450641
+    },
+    {
+      "dex": "orca",
+      "pool": "33e6dhGgeCzQ7eUTVSaZhcHtVJrAH8wFEQ7X2rWvv9bG",
+      "price": 0.003205,
+      "mcap": 2970906,
+      "liquidity": 6876.65,
+      "volume": 18674.85,
+      "buys_24h": 872,
+      "sells_24h": 590,
+      "created": "2024-05-09T12:38:42+00:00",
+      "liq_ratio": 0.2314664280862471
+    },
+    {
+      "dex": "meteora",
+      "pool": "CUGH18SQo9kmYvdr2NhY6fN9u9wrRnySEprKoJhEHMxD",
+      "price": 0.0112,
+      "mcap": 10389328,
+      "liquidity": 7235.24,
+      "volume": 15905.64,
+      "buys_24h": 600,
+      "sells_24h": 410,
+      "created": "2026-01-15T08:22:29+00:00",
+      "liq_ratio": 0.0696410778444958
+    },
+    {
+      "dex": "meteora",
+      "pool": "9XUueVpfREWmxAbeteVhCckgK4yRZJaejRRhYnp7193L",
+      "price": 0.0,
+      "mcap": 0,
+      "liquidity": 0,
+      "volume": 0,
+      "buys_24h": 70,
+      "sells_24h": 55,
+      "created": "2025-10-05T00:12:59+00:00",
+      "liq_ratio": 0
+    },
+    {
+      "dex": "meteora",
+      "pool": "3RHacApR8EGriGhKsBkX3btXsph4oHga6or6yofp1XK2",
+      "price": 0.003259,
+      "mcap": 3021525,
+      "liquidity": 209.49,
+      "volume": 501.14,
+      "buys_24h": 371,
+      "sells_24h": 291,
+      "created": "2024-12-27T02:54:04+00:00",
+      "liq_ratio": 0.006933253903244224
+    },
+    {
+      "dex": "meteora",
+      "pool": "FXv7ynSCsLiDnwgSEG7iDjXY5MKtAfDRrMb985y2noez",
+      "price": 0.003225,
+      "mcap": 2989630,
+      "liquidity": 161.24,
+      "volume": 268.81,
+      "buys_24h": 284,
+      "sells_24h": 228,
+      "created": "2025-05-04T10:40:51+00:00",
+      "liq_ratio": 0.005393309539976519
+    },
+    {
+      "dex": "meteora",
+      "pool": "DUZ7m7qRxrbDidsqkN68fyt4dFzX2JyyoqvqXcm1ZyYt",
+      "price": 0.003075,
+      "mcap": 2850745,
+      "liquidity": 650.44,
+      "volume": 139.05,
+      "buys_24h": 78,
+      "sells_24h": 97,
+      "created": "2024-09-25T09:53:43+00:00",
+      "liq_ratio": 0.022816491829328826
+    },
+    {
+      "dex": "meteora",
+      "pool": "HnTY2YV97wGSsPcQcqjhTaVfTdysLTKiAHqhtoKqf9pg",
+      "price": 0.003091,
+      "mcap": 2865159,
+      "liquidity": 193.01,
+      "volume": 156.38,
+      "buys_24h": 116,
+      "sells_24h": 82,
+      "created": "2025-06-24T23:10:53+00:00",
+      "liq_ratio": 0.006736449879395873
+    },
+    {
+      "dex": "meteora",
+      "pool": "5MCF6dEnUPrVgakg2sfiAz8vCD2B8H1HFbFbQXf2dhzf",
+      "price": 0.003131,
+      "mcap": 2902164,
+      "liquidity": 1.77,
+      "volume": 3.08,
+      "buys_24h": 157,
+      "sells_24h": 113,
+      "created": "2024-12-22T01:37:08+00:00",
+      "liq_ratio": 6.0988972366826956e-05
+    },
+    {
+      "dex": "meteora",
+      "pool": "6wgFdpww1BEsgUgmtYqkqbHYTdqK2JgiANHm3FSrvAgV",
+      "price": 0.0,
+      "mcap": 0,
+      "liquidity": 0,
+      "volume": 1330.05,
+      "buys_24h": 373,
+      "sells_24h": 531,
+      "created": "2025-12-02T01:30:36+00:00",
+      "liq_ratio": 0
+    },
+    {
+      "dex": "meteora",
+      "pool": "4QRDmdx4hKtz4c5zYWUJpWJKUoPoTnzcgZxQ2hd2rvH7",
+      "price": 0.0,
+      "mcap": 0,
+      "liquidity": 0,
+      "volume": 0,
+      "buys_24h": 303,
+      "sells_24h": 477,
+      "created": "2025-11-27T12:13:31+00:00",
+      "liq_ratio": 0
+    },
+    {
+      "dex": "meteora",
+      "pool": "5E6ME1AqoBMiNPcq1GsfMSJwx5SZh8ZX8N5qzxgSeuuo",
+      "price": 0.0,
+      "mcap": 0,
+      "liquidity": 0,
+      "volume": 0,
+      "buys_24h": 317,
+      "sells_24h": 420,
+      "created": "2025-11-27T11:56:24+00:00",
+      "liq_ratio": 0
+    },
+    {
+      "dex": "meteora",
+      "pool": "7hubR6NpfdgHWDHKqmuCw1mTx3LEbNdMgFwKBPeLC1uK",
+      "price": 0.0,
+      "mcap": 0,
+      "liquidity": 0,
+      "volume": 0,
+      "buys_24h": 275,
+      "sells_24h": 413,
+      "created": "2025-12-30T10:35:23+00:00",
+      "liq_ratio": 0
+    },
+    {
+      "dex": "meteora",
+      "pool": "8AZZWb2egvfLKVrrnEJCru4sH6utjjegkYHgsk1xxt5K",
+      "price": 0.0,
+      "mcap": 0,
+      "liquidity": 0,
+      "volume": 0,
+      "buys_24h": 43,
+      "sells_24h": 60,
+      "created": "2025-07-17T21:12:38+00:00",
+      "liq_ratio": 0
+    },
+    {
+      "dex": "meteora",
+      "pool": "8Q1pCTWktER6wsYFLYQ7ZD5zpr7Cx8dSDHjubyTsFVwf",
+      "price": 0.0,
+      "mcap": 0,
+      "liquidity": 0,
+      "volume": 0,
+      "buys_24h": 40,
+      "sells_24h": 48,
+      "created": "2025-07-22T17:30:44+00:00",
+      "liq_ratio": 0
+    },
+    {
+      "dex": "raydium",
+      "pool": "9WMz5uEQfoqyfmxsvPya6JaMkqHibVvHYnz9JvZ1Pj3w",
+      "price": 9.697e-05,
+      "mcap": 95247,
+      "liquidity": 52.67,
+      "volume": 82.05,
+      "buys_24h": 152,
+      "sells_24h": 193,
+      "created": "2024-09-28T01:56:21+00:00",
+      "liq_ratio": 0.05529832960618182
+    },
+    {
+      "dex": "meteora",
+      "pool": "Ab7s8aXCs1QV4c3aemUwmBe5QS4xKRNyFj1AyLgQjV8m",
+      "price": 2.95e-05,
+      "mcap": 29501,
+      "liquidity": 92.7,
+      "volume": 64.92,
+      "buys_24h": 14,
+      "sells_24h": 17,
+      "created": "2024-10-19T04:19:36+00:00",
+      "liq_ratio": 0.3142266363852073
+    },
+    {
+      "dex": "pumpswap",
+      "pool": "HSbjRwudqqr1CyscfUTrU51LDuCgs5F6YoBJ9cqbUa5d",
+      "price": 0.01256,
+      "mcap": 8260,
+      "liquidity": 0.84,
+      "volume": 0.69,
+      "buys_24h": 16,
+      "sells_24h": 20,
+      "created": "2025-06-23T08:37:16+00:00",
+      "liq_ratio": 0.010169491525423728
+    }
+  ],
+  "holder_count": 20,
+  "top_holder_concentration": 26.8427533018276,
+  "suspicious_funders": {},
+  "wallet_clusters": {},
+  "creator_data": {},
+  "bundle_data": {
+    "bundle_slots": 37,
+    "early_buyers": 19,
+    "earliest_buyers": {
+      "76skFQcZdNznPBCy21vbgAEovwUE25tTbSony1P2AjLu": {
+        "slot": 408904948,
+        "timestamp": 1774496627,
+        "amount": 527.29445,
+        "signature": "XWdDXMKEyQKWpJTndJr3gQn9BsH3ZZo4TUMTSEc732nDF49Pch9DmwFYuEdiHZDHfY3GS4K64JyHQnuUUJDR83z",
+        "from": "6PFfh93xx5H8Lr6N5RENAwexCuCGSAQQ79Rzdvbo89d4"
+      },
+      "5Q544fKrFoe6tsEbD7S8EmxGTJYAKtTVhAW5Q5pge4j1": {
+        "slot": 408904948,
+        "timestamp": 1774496627,
+        "amount": 5058.458606,
+        "signature": "XWdDXMKEyQKWpJTndJr3gQn9BsH3ZZo4TUMTSEc732nDF49Pch9DmwFYuEdiHZDHfY3GS4K64JyHQnuUUJDR83z",
+        "from": "6PFfh93xx5H8Lr6N5RENAwexCuCGSAQQ79Rzdvbo89d4"
+      },
+      "9nnLbotNTcUhvbrsA6Mdkx45Sm82G35zo28AqUvjExn8": {
+        "slot": 408904904,
+        "timestamp": 1774496609,
+        "amount": 7241.049644,
+        "signature": "5DBaXqxtTodJRBdTsdkhY6ii9nJi71TfNkAJp41Zj2cGjzYBkVUvii7JLegozhQvjEjDG46ZEwbpYxqsuEmWEERj",
+        "from": "Bjk2QXiskCvXghKL65Cd3jkMDtHTfkwzBEzWs3AUx1zo"
+      },
+      "HuTshmtwcQkWBLzgW3m4uwcmik7Lmz4YFpYcTqMJpXiP": {
+        "slot": 408904780,
+        "timestamp": 1774496560,
+        "amount": 186.404552,
+        "signature": "4jzsnRx1kEWXaJLKWbBXGs6aHyEhsMQRdniCjVfeP42tng6Ek1P7xH3caxvPWVpWJSpyQdnRUT3xqnhSZ6nhkEov",
+        "from": "5Q544fKrFoe6tsEbD7S8EmxGTJYAKtTVhAW5Q5pge4j1"
+      },
+      "BQ72nSv9f3PRyRKCBnHLVrerrv37CYTHm5h3s9VSGQDV": {
+        "slot": 408904749,
+        "timestamp": 1774496548,
+        "amount": 1033.873217,
+        "signature": "3iZfi1GRT58tnEQe6P1zf7SpnxJ92sRujZzQoZgYGTeTsrpzL49nq4dZ6vnuEvhj8S9JVwD6166x1wXGBrUjJeo5",
+        "from": "5Q544fKrFoe6tsEbD7S8EmxGTJYAKtTVhAW5Q5pge4j1"
+      },
+      "BM9CcyErJcu2mjrFvUsRRrD3snGeHDDVirJLvL6EjvMN": {
+        "slot": 408904749,
+        "timestamp": 1774496548,
+        "amount": 1033.873217,
+        "signature": "3iZfi1GRT58tnEQe6P1zf7SpnxJ92sRujZzQoZgYGTeTsrpzL49nq4dZ6vnuEvhj8S9JVwD6166x1wXGBrUjJeo5",
+        "from": "BQ72nSv9f3PRyRKCBnHLVrerrv37CYTHm5h3s9VSGQDV"
+      },
+      "3LoAYHuSd7Gh8d7RTFnhvYtiTiefdZ5ByamU42vkzd76": {
+        "slot": 408904737,
+        "timestamp": 1774496543,
+        "amount": 91593.753157,
+        "signature": "4w82SiVWYJ1ywdYEHJzXoQjixW8uDdL4wTK59XNHyu6LW5DJLa37NvxhXt1yqQRUGC1kJtThQqkK9V5JK1bt38dW",
+        "from": "36tfdjy6c1jVMXD8xe1aSxtHpNEx66urqMBQXYCN1NbY"
+      },
+      "54Pz1e35z9uoFdnxtzjp7xZQoFiofqhdayQWBMN7dsuy": {
+        "slot": 408904609,
+        "timestamp": 1774496492,
+        "amount": 7571.70241,
+        "signature": "3SSCwSqnNsqkoci4pHWsfnS3o6zEGiXCdj6hYi9fzL4Tp2vAFtAU3TkBKbrfpFS9TC2YYR5aew6ttMG49moc4Xwj",
+        "from": "5Q544fKrFoe6tsEbD7S8EmxGTJYAKtTVhAW5Q5pge4j1"
+      },
+      "EAkmVambquf3axRYw176NnRxAD1TPV6yZ8RqGmu85mzE": {
+        "slot": 408904609,
+        "timestamp": 1774496492,
+        "amount": 7571.70241,
+        "signature": "3SSCwSqnNsqkoci4pHWsfnS3o6zEGiXCdj6hYi9fzL4Tp2vAFtAU3TkBKbrfpFS9TC2YYR5aew6ttMG49moc4Xwj",
+        "from": "54Pz1e35z9uoFdnxtzjp7xZQoFiofqhdayQWBMN7dsuy"
+      },
+      "2MFoS3MPtvyQ4Wh4M9pdfPjz6UhVoNbFbGJAskCPCj3h": {
+        "slot": 408904505,
+        "timestamp": 1774496452,
+        "amount": 15564.553641,
+        "signature": "2Ws6h64FQMrQjYBkau7eWewj9Yfm8cf2CkUgY8T6PAcftVAi5qu3x6qmXzWkt8wXwffPpVh1MxHVByQt5b6TWfDj",
+        "from": "5Q544fKrFoe6tsEbD7S8EmxGTJYAKtTVhAW5Q5pge4j1"
+      },
+      "FMVHP1xw6ZHB9zLGyrJeeAvEzCBgouH8bPzdkYqq2C5W": {
+        "slot": 408904505,
+        "timestamp": 1774496452,
+        "amount": 233.468304,
+        "signature": "2Ws6h64FQMrQjYBkau7eWewj9Yfm8cf2CkUgY8T6PAcftVAi5qu3x6qmXzWkt8wXwffPpVh1MxHVByQt5b6TWfDj",
+        "from": "2MFoS3MPtvyQ4Wh4M9pdfPjz6UhVoNbFbGJAskCPCj3h"
+      },
+      "GrBHJqQpdxM5x6RwducN4XWfzBQz5mWG53izuoEbCujz": {
+        "slot": 408904505,
+        "timestamp": 1774496452,
+        "amount": 15331.085337,
+        "signature": "2Ws6h64FQMrQjYBkau7eWewj9Yfm8cf2CkUgY8T6PAcftVAi5qu3x6qmXzWkt8wXwffPpVh1MxHVByQt5b6TWfDj",
+        "from": "2MFoS3MPtvyQ4Wh4M9pdfPjz6UhVoNbFbGJAskCPCj3h"
+      },
+      "ARu4n5mFdZogZAravu7CcizaojWnS6oqka37gdLT5SZn": {
+        "slot": 408904485,
+        "timestamp": 1774496444,
+        "amount": 127099.888524,
+        "signature": "2boxAYDrrAxKiDCC5YwbsqSDVDzkfC9SJXb53EmGHcd4itPkFhLbSLhDUEyMo4yCCFWYJbihS3yXBkek8f6wtiyZ",
+        "from": "7NPLMWgrFWEADvHu4BwzgpAKcyD42TWdgJAHWW2iYTJS"
+      },
+      "GEtYZjqMKnQdjFNTkfUf8m5PG3hVCSoz58i7mV7gk3vC": {
+        "slot": 408904485,
+        "timestamp": 1774496444,
+        "amount": 1270.998885,
+        "signature": "2boxAYDrrAxKiDCC5YwbsqSDVDzkfC9SJXb53EmGHcd4itPkFhLbSLhDUEyMo4yCCFWYJbihS3yXBkek8f6wtiyZ",
+        "from": "ARu4n5mFdZogZAravu7CcizaojWnS6oqka37gdLT5SZn"
+      },
+      "33e6dhGgeCzQ7eUTVSaZhcHtVJrAH8wFEQ7X2rWvv9bG": {
+        "slot": 408904485,
+        "timestamp": 1774496444,
+        "amount": 2541.997771,
+        "signature": "2boxAYDrrAxKiDCC5YwbsqSDVDzkfC9SJXb53EmGHcd4itPkFhLbSLhDUEyMo4yCCFWYJbihS3yXBkek8f6wtiyZ",
+        "from": "ARu4n5mFdZogZAravu7CcizaojWnS6oqka37gdLT5SZn"
+      },
+      "AWb1tNiJ3LsTtmMcc5UTK6Xq9MQFgDMw3SWx4bDPkgVK": {
+        "slot": 408904109,
+        "timestamp": 1774496295,
+        "amount": 30948.125871,
+        "signature": "aGLR5bKyBJ1wpWJ4t9R7HwbyZ2UzENWAhuQwL3PLZBBoongVZCw3rHVA3cKKuWYaMHbvdrUu2FJ5eQAmuvt8GLu",
+        "from": "5Q544fKrFoe6tsEbD7S8EmxGTJYAKtTVhAW5Q5pge4j1"
+      },
+      "H1nyNbXgLt3ABte9nqz8VTtbkPP6c5WUHP84hoztEC1p": {
+        "slot": 408904051,
+        "timestamp": 1774496272,
+        "amount": 4226.233436,
+        "signature": "2xXFJTZEtDnWE9DEU1ELpJ2y48NMY5R254LEUJGWCDzyQTNRZZGcVcqXocPqn9Diw2ZkEotXjKUCvSzt88rc5Ltd",
+        "from": "5Q544fKrFoe6tsEbD7S8EmxGTJYAKtTVhAW5Q5pge4j1"
+      },
+      "8psNvWTrdNTiVRNzAgsou9kETXNJm2SXZyaKuJraVRtf": {
+        "slot": 408903992,
+        "timestamp": 1774496250,
+        "amount": 0.264282,
+        "signature": "cZ6mj599me4dHo4TU9pyYcWGqz8cbQXQF4tw2ki8PcsHqRntSoHQLS1mTUjXrFWhNqRv3ssfarFz2ZFzu1oSJQn",
+        "from": "ARu4n5mFdZogZAravu7CcizaojWnS6oqka37gdLT5SZn"
+      },
+      "6sgzgdvycuDxm7naG9BMQVrmdNhFfP2tZLcvuxgocKpu": {
+        "slot": 408903992,
+        "timestamp": 1774496250,
+        "amount": 616.014997,
+        "signature": "cZ6mj599me4dHo4TU9pyYcWGqz8cbQXQF4tw2ki8PcsHqRntSoHQLS1mTUjXrFWhNqRv3ssfarFz2ZFzu1oSJQn",
+        "from": "ARu4n5mFdZogZAravu7CcizaojWnS6oqka37gdLT5SZn"
+      }
+    }
+  },
+  "lp_data": {
+    "pool_creation": null,
+    "lp_adds": 0,
+    "lp_removes": 0,
+    "total_sol_added": 0,
+    "total_sol_removed": 0,
+    "total_swaps": 300
+  },
+  "links": {
+    "creator_solscan": "https://solscan.io/account/None",
+    "token_solscan": "https://solscan.io/token/6yjNqPzTSanBWSa6dxVEgTjePXBrZ2FoHLDQwYwEsyM6",
+    "token_birdeye": "https://birdeye.so/token/6yjNqPzTSanBWSa6dxVEgTjePXBrZ2FoHLDQwYwEsyM6?chain=solana",
+    "rugcheck": "https://rugcheck.xyz/tokens/6yjNqPzTSanBWSa6dxVEgTjePXBrZ2FoHLDQwYwEsyM6"
+  }
+}
