@@ -7,7 +7,9 @@ let staticData = null;
 async function loadStaticData() {
   if (staticData) return staticData;
   try {
-    const res = await fetch('/data/trumpchud.json');
+    // Try both paths — works for both local dev and GH Pages subdirectory
+    let res = await fetch(`${import.meta.env.BASE_URL}data/trumpchud.json`);
+    if (!res.ok) res = await fetch('/data/trumpchud.json');
     if (res.ok) {
       staticData = await res.json();
       return staticData;
