@@ -155,9 +155,17 @@ export async function renderTokenPage(container, mint) {
                 statusText.textContent = 'AUDIT COMPLETE';
                 statusText.style.color = 'var(--clean)';
                 setTimeout(() => renderTokenPage(container, mint), 500);
+                return;
+              }
+              if (check.token && check.token.status === 'failed') {
+                clearInterval(poll);
+                statusText.textContent = 'AUDIT FAILED';
+                statusText.style.color = 'var(--critical)';
+                if (dots) dots.textContent = 'The audit encountered an error. Check server logs or try again.';
+                return;
               }
             } catch (e) {
-              // Still running
+              // Still running or 404 — keep polling
             }
 
             if (attempts >= maxAttempts) {
