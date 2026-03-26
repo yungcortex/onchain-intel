@@ -53,10 +53,15 @@ async function staticFallback(path) {
     return { audits: 1, wallets: Object.keys(data.wallet_clusters || {}).reduce((sum, k) => sum + (data.wallet_clusters[k]?.length || 0), 0) + 2, rugs: 1 };
   }
 
-  // /audit/:mint
+  // /audit/:mint — only return data if it matches our cached token
   const auditMatch = path.match(/^\/audit\/(.+)$/);
   if (auditMatch) {
-    return buildAuditResponse(data);
+    const requestedMint = auditMatch[1];
+    if (requestedMint === mint) {
+      return buildAuditResponse(data);
+    }
+    // Different token — we don't have data for it in static mode
+    throw new Error(`Token not audited. In static mode, only ${data.name} (${mint.slice(0, 12)}...) is available.`);
   }
 
   // /audit (list)
@@ -103,9 +108,15 @@ async function staticFallback(path) {
     return { article: { slug: 'trumpchud-sybil-attack', title: 'TrumpChud — A Coordinated Sybil Attack', summary: 'Investigation details', content: '# See the full audit page for details', token_mint: mint, published: 1, created_at: data.timestamp }, token: { mint, name: data.name, risk_score: data.risk_score } };
   }
 
-  // /search
+  // /search — only match if query matches our token
   if (path.startsWith('/search')) {
-    return { tokens: [{ mint, name: data.name, risk_score: data.risk_score, status: 'complete' }], wallets: [] };
+    const qMatch = path.match(/q=([^&]+)/);
+    const query = qMatch ? decodeURIComponent(qMatch[1]).toLowerCase() : '';
+    const matches = query && (mint.toLowerCase().includes(query) || (data.name || '').toLowerCase().includes(query));
+    return {
+      tokens: matches ? [{ mint, name: data.name, risk_score: data.risk_score, status: 'complete' }] : [],
+      wallets: [],
+    };
   }
 
   throw new Error('Not found');

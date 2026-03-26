@@ -64,19 +64,37 @@ export async function renderTokenPage(container, mint) {
     }
   } catch (err) {
     // Token not audited yet — show audit trigger UI
+    const isStaticMode = err.message?.includes('static mode');
+
     container.innerHTML = `
-      <div style="max-width:800px;margin:0 auto;padding:60px 40px;text-align:center;">
+      <div style="max-width:800px;margin:0 auto;padding:60px 20px;text-align:center;">
         <div style="font-family:'Orbitron',sans-serif;font-size:10px;color:var(--chrome-dark);letter-spacing:0.2em;margin-bottom:16px;">TOKEN NOT AUDITED</div>
-        <h2 style="font-family:'Orbitron',sans-serif;font-size:24px;color:var(--chrome-bright);margin-bottom:8px;">Run Forensic Audit</h2>
-        <p style="color:var(--chrome-mid);margin-bottom:8px;font-size:13px;">No audit data found for this token.</p>
-        <p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--chrome-dark);margin-bottom:32px;word-break:break-all;">${mint}</p>
+        <h2 style="font-family:'Orbitron',sans-serif;font-size:clamp(18px,4vw,24px);color:var(--chrome-bright);margin-bottom:8px;">Run Forensic Audit</h2>
+        <p style="color:var(--chrome-mid);margin-bottom:8px;font-size:13px;">No audit data found for this token yet.</p>
+        <p style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--chrome-dark);margin-bottom:24px;word-break:break-all;">${mint}</p>
+
+        <!-- Quick links to check externally -->
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:28px;">
+          <a href="https://solscan.io/token/${mint}" target="_blank" rel="noopener" style="font-size:10px;padding:8px 14px;background:rgba(88,166,255,0.08);border:1px solid rgba(88,166,255,0.2);border-radius:6px;color:var(--low);">View on Solscan</a>
+          <a href="https://birdeye.so/token/${mint}?chain=solana" target="_blank" rel="noopener" style="font-size:10px;padding:8px 14px;background:rgba(0,210,106,0.08);border:1px solid rgba(0,210,106,0.2);border-radius:6px;color:var(--clean);">Birdeye</a>
+          <a href="https://rugcheck.xyz/tokens/${mint}" target="_blank" rel="noopener" style="font-size:10px;padding:8px 14px;background:rgba(255,166,87,0.08);border:1px solid rgba(255,166,87,0.2);border-radius:6px;color:var(--high);">RugCheck</a>
+          <a href="https://dexscreener.com/solana/${mint}" target="_blank" rel="noopener" style="font-size:10px;padding:8px 14px;background:rgba(188,140,255,0.08);border:1px solid rgba(188,140,255,0.2);border-radius:6px;color:var(--accent);">DexScreener</a>
+        </div>
 
         <div id="audit-trigger">
-          <button id="run-audit-btn"
-            style="background:rgba(88,166,255,0.15);border:1px solid rgba(88,166,255,0.4);color:#58a6ff;padding:14px 32px;border-radius:8px;font-family:'Orbitron',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.15em;cursor:pointer;transition:all 0.3s;">
-            RUN AUDIT
-          </button>
-          <p style="color:var(--chrome-dark);font-size:10px;margin-top:12px;">Takes 1-3 minutes. Requires HELIUS_API_KEY on the server.</p>
+          ${isStaticMode ? `
+            <div class="glass-panel" style="padding:20px;margin-bottom:16px;text-align:left;">
+              <div class="scanlines"></div>
+              <div style="font-size:11px;color:var(--high);font-weight:600;margin-bottom:6px;">Full audits require the backend server</div>
+              <div style="font-size:10px;color:var(--chrome-mid);line-height:1.5;">This is the static version of OnChain Intel. To run live forensic audits with wallet tracing, bundle detection, and LP analysis, the full server with Python tools needs to be running.</div>
+            </div>
+          ` : `
+            <button id="run-audit-btn"
+              style="background:rgba(88,166,255,0.15);border:1px solid rgba(88,166,255,0.4);color:#58a6ff;padding:14px 32px;border-radius:8px;font-family:'Orbitron',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.15em;cursor:pointer;transition:all 0.3s;">
+              RUN AUDIT
+            </button>
+            <p style="color:var(--chrome-dark);font-size:10px;margin-top:12px;">Takes 1-3 minutes — traces wallets, analyzes transactions, builds connection graph</p>
+          `}
         </div>
 
         <div id="audit-progress" style="display:none;">
